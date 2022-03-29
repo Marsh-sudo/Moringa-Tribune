@@ -1,4 +1,5 @@
 # from turtle import title
+import email
 from email.policy import default
 from django.db import models
 import datetime as dt
@@ -50,6 +51,12 @@ class Article(models.Model):
     def search_by_title(cls,search_term):
         news = cls.objects.filter(title__icontains=search_term)
         return news
+
+class NewsLetterRecipients(models.Model):
+    name = models.CharField(max_length=20)
+    email = models.EmailField()
+
+
 
 
 
